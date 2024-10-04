@@ -1,0 +1,63 @@
+#######################################################################################################################################
+# Teoría
+
+1. 
+B.
+#--------------------------------------------------------------------------------------------------------------------------------------
+
+2. 
+B
+#--------------------------------------------------------------------------------------------------------------------------------------
+
+3. 
+1NF
+#--------------------------------------------------------------------------------------------------------------------------------------
+
+4. 
+Where se ejecuta antes del group by y el Having se ejecuta después
+#--------------------------------------------------------------------------------------------------------------------------------------
+
+5.
+C 
+#######################################################################################################################################
+# Práctica
+
+1.
+
+```SQL
+-- poner solución debajo de este mensaje
+
+SELECT avg(edad) as promedio_edad
+FROM alumnos
+WHERE apellido like "%ez"
+
+
+```
+
+2.
+
+```SQL
+-- poner solución debajo de este mensaje
+
+SELECT c.nombre_materia, COUNT(*) AS num_alumnos
+FROM calificaciones c
+JOIN alumnos a ON c.expediente = a.expediente
+WHERE a.edad > 20
+GROUP BY c.nombre_materia
+ORDER BY num_alumnos DESC;
+
+```
+
+3.
+
+```SQL
+-- poner solución debajo de este mensaje
+
+SELECT a.nombre, a.apellido, c.calificacion
+FROM calificaciones c
+JOIN alumnos a ON c.expediente = a.expediente
+WHERE c.nombre_materia = 'Matemáticas' AND c.calificacion IS NOT NULL
+ORDER BY c.calificacion DESC
+LIMIT 1 OFFSET 1;
+
+```
